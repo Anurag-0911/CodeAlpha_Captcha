@@ -1,48 +1,58 @@
-import React, { useEffect } from "react";
-
-
+import React, { Component } from "react";
 
 import {
   loadCaptchaEnginge,
   LoadCanvasTemplate,
-  validateCaptcha,
+  // LoadCanvasTemplateNoReload,
+  validateCaptcha
 } from "react-simple-captcha";
 
-const Captcha = ({ setcaptchaverified }) => {
-  useEffect(() => {
-    loadCaptchaEnginge(5);
-  }, []);
 
-  const onSubmit = () => {
-    const user_captcha = document.getElementById("user_input").value;
+
+class CaptchaTest extends Component {
+  constructor(props) {
+    super(props);
+  }
+  componentDidMount() {
+    loadCaptchaEnginge(5);
+  }
+
+  submit = () => {
+    let user_captcha = document.getElementById("user_input").value;
 
     if (validateCaptcha(user_captcha) === true) {
-      setcaptchaverified(true);
+
+
+      this.props.setcaptchaverified(true)
+
     } else {
-      alert("Invalid Captcha! Please Enter the Captcha again.");
+      alert("Invalid Captcha Please Enter carefully.");
       document.getElementById("user_input").value = "";
     }
   };
 
-  return (
-    <>
-    <div>
+  render() {
+    return (
       <div>
-        <LoadCanvasTemplate />
-      </div>
-      <input
-        type="text"
-        placeholder="Enter Captcha"
-        name="user_input"
-        
-      />
-      <br/>
-      <div className="ver_cap">
-        <button onClick={onSubmit}>Verify Captcha</button>
-      </div>
-    </div>
-    </>
-  );
-};
 
-export default Captcha;
+        <div>
+          <LoadCanvasTemplate />
+        </div>
+
+        <input
+          type="text"
+          placeholder="Enter Captcha"
+          id="user_input"
+          name="user_input"
+
+        ></input>
+        <div className="ver_cap">
+          <button onClick={() => this.submit()} >
+            Verify Captcha
+          </button>
+        </div>
+      </div>
+    );
+  }
+}
+export default CaptchaTest;

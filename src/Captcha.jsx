@@ -24,6 +24,7 @@ class CaptchaTest extends Component {
 
 
       this.props.setcaptchaverified(true)
+      alert("Captcha Verified please submit the form");
 
     } else {
       alert("Invalid Captcha Please Enter carefully.");

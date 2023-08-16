@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect }from "react";
 import "./App.css";
 import { useState } from "react";
 import Captcha from "./Captcha";
@@ -18,7 +18,7 @@ export default function App() {
   if (formsubmitted) {
     return (
       <>
-        <h1>Successfully Registered</h1>
+        <h1 className="container_l">Sign In done Successfully</h1>
       </>
     );
   }
@@ -42,10 +42,9 @@ export default function App() {
         {!captchaverified && (
           <>
             <Captcha setcaptchaverified={setcaptchaverified} />
+            <br />
             
-
-            <br/>
-          </>
+         </>
         )}
       </div>
     </>

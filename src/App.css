@@ -61,11 +61,13 @@ body {
 }
 .container_l
 {
-  color: rgb(0, 0, 0);
+  color: greenyellow;
+  font-family: 'Times New Roman', Times, serif ;
   width: 500px;
-  height: auto;
+  height: 100px;
   border-radius: 25px;
   display: flex;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
   background: transparent;
@@ -95,11 +97,11 @@ input{
   width: 4rem;
   height: 2rem;
   margin-bottom: 10px;
-  background-color: rgb(28, 216, 28);
+  background-color: rgb(255, 2, 107);
 }
 .cnf_sbmt:hover{
   cursor: pointer;
-  background-color: rgb(5, 174, 5);
+  background-color: greenyellow;
   color:black;
   border:1px solid green;
 }
